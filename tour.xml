@@ -74,7 +74,7 @@
 		if(startactions !== null, startactions() );
 	</action>
 
-	<scene name="scene_reception" title="Ресепшн" onstart="" havevrimage="true" thumburl="panos/reception.tiles/thumb.jpg" lat="" lng="" heading="Hellllllo!">
+	<scene name="scene_reception" title="Ресепшн" onstart="" havevrimage="true" thumburl="panos/reception.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="546.206" vlookat="15.298" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110" limitview="auto" />
 
@@ -97,7 +97,7 @@
 		</image>
 
 		<!-- place your scene hotspots here -->
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="97.717" atv="6.175" linkedscene="scene_coridor" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="97.717" atv="6.175" linkedscene="scene_coridor"/>
 		<hotspot name="spot2" style="skin_hotspotstyle" ath="-29.291" atv="2.644" linkedscene="scene_procedure" />
 
 	</scene>
@@ -126,8 +126,8 @@
 		</image>
 
 		<!-- place your scene hotspots here -->
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="124.398" atv="-0.223" width="70" height="prop" linkedscene="scene_genikolog"/>
-		<hotspot name="spot2" style="skin_hotspotstyle" ath="131.232" atv="4.913" width="100" height="prop" linkedscene="scene_uzi" />
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="124.398" atv="-0.223"  linkedscene="scene_genikolog"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="131.232" atv="4.913" linkedscene="scene_uzi" />
 		<hotspot name="spot3" style="skin_hotspotstyle" ath="135.698" atv="11.985" linkedscene="scene_massage" />
 		<hotspot name="spot4" style="skin_hotspotstyle" ath="-45.214" atv="3.826" linkedscene="scene_reception" />
 
