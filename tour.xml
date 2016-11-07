@@ -1,0 +1,248 @@
+﻿<krpano version="1.19" title="Медиал">
+
+	<include url="skin/vtourskin.xml" />
+
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               gyro="true"
+	               webvr="true"
+	               webvr_gyro_keeplookingdirection="false"
+	               webvr_prev_next_hotspots="true"
+	               littleplanetintro="true"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="true"
+	               thumbs_text="true"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="true"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext="loading..."
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="font-size:16px; color:#000000; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!--  <include url="skin/vtourskin_design_flat_light.xml"  />  -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	 <include url="skin/vtourskin_design_117round.xml"    /> 
+	<!-- <include url="skin/vtourskin_design_black.xml"       />  -->
+
+
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+
+	<scene name="scene_reception" title="Ресепшн" onstart="" havevrimage="true" thumburl="panos/reception.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="546.206" vlookat="15.298" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110" limitview="auto" />
+
+		<preview url="panos/reception.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/reception.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/reception.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/reception.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/reception.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="97.717" atv="6.175" linkedscene="scene_coridor" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-29.291" atv="2.644" linkedscene="scene_procedure" />
+
+	</scene>
+
+
+	<scene name="scene_coridor" title="Коридор" onstart="" havevrimage="true" thumburl="panos/coridor.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="122.574" vlookat="4.886" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110" limitview="auto" />
+
+		<preview url="panos/coridor.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/coridor.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/coridor.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/coridor.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/coridor.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="124.398" atv="-0.223" width="70" height="prop" linkedscene="scene_genikolog"/>
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="131.232" atv="4.913" width="100" height="prop" linkedscene="scene_uzi" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="135.698" atv="11.985" linkedscene="scene_massage" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-45.214" atv="3.826" linkedscene="scene_reception" />
+
+	</scene>
+
+	<scene name="scene_genikolog" title="Кабинет гинеколога" onstart="" havevrimage="true" thumburl="panos/genikolog.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="245.700" vlookat="25.157" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110"  limitview="auto" />
+
+		<preview url="panos/genikolog.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/genikolog.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/genikolog.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/genikolog.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/genikolog.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-2.699" atv="4.533" linkedscene="scene_coridor" />
+
+	</scene>
+
+	<scene name="scene_massage" title="Массажный кабинет" onstart="" havevrimage="true" thumburl="panos/massage.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-398.148" vlookat="24.499" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110"  limitview="auto" />
+
+		<preview url="panos/massage.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/massage.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/massage.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/massage.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/massage.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="166.226" atv="3.037" linkedscene="scene_coridor" />
+
+	</scene>
+
+	<scene name="scene_procedure" title="Процедурный кабинет" onstart="" havevrimage="true" thumburl="panos/procedure.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="665.865" vlookat="13.523" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110"  limitview="auto" />
+
+		<preview url="panos/procedure.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="4736" tiledimageheight="4736">
+				<cube url="panos/procedure.tiles/%s/l4/%0v/l4_%s_%0v_%0h.jpg" />
+			</level>
+			<level tiledimagewidth="2304" tiledimageheight="2304">
+				<cube url="panos/procedure.tiles/%s/l3/%0v/l3_%s_%0v_%0h.jpg" />
+			</level>
+			<level tiledimagewidth="1152" tiledimageheight="1152">
+				<cube url="panos/procedure.tiles/%s/l2/%0v/l2_%s_%0v_%0h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/procedure.tiles/%s/l1/%0v/l1_%s_%0v_%0h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/procedure.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-3.328" atv="1.128" linkedscene="scene_reception" />
+
+	</scene>
+
+
+	<scene name="scene_UZI" title="УЗИ" onstart="" havevrimage="true" thumburl="panos/UZI.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-8.903" vlookat="13.679" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110"  limitview="auto" />
+
+		<preview url="panos/UZI.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/UZI.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/UZI.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/UZI.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/UZI.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="155.773" atv="4.294" linkedscene="scene_coridor" />
+
+	</scene>
+
+</krpano>
