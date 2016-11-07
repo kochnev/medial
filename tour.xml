@@ -33,7 +33,7 @@
 	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
 	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
 	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
-	               loadingtext="loading..."
+	               loadingtext="загрузка..."
 	               layout_width="100%"
 	               layout_maxwidth="814"
 	               controlbar_width="-24"
@@ -51,7 +51,7 @@
 	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
 	               design_thumbborder_padding="2"
 	               design_thumbborder_bgroundedge="0"
-	               design_text_css="font-size:16px; color:#000000; font-family:Arial;"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
 	               design_text_shadow="1"
 	               />
 
@@ -63,7 +63,7 @@
 	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
 	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
-	 <include url="skin/vtourskin_design_117round.xml"    /> 
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       />  -->
 
 
@@ -74,7 +74,7 @@
 		if(startactions !== null, startactions() );
 	</action>
 
-	<scene name="scene_reception" title="Ресепшн" onstart="" havevrimage="true" thumburl="panos/reception.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_reception" title="Ресепшн" onstart="" havevrimage="true" thumburl="panos/reception.tiles/thumb.jpg" lat="" lng="" heading="Hellllllo!">
 
 		<view hlookat="546.206" vlookat="15.298" fovtype="MFOV" fov="110.000" maxpixelzoom="2.0" fovmin="90" fovmax="110" limitview="auto" />
 
